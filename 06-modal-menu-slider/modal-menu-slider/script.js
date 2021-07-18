@@ -1,20 +1,40 @@
-// const toggle = document.getElementById('toggle');
-// const close = document.getElementById('close');
-// const open = document.getElementById('open');
-// const modal = document.getElementById('modal');
+const sidebarBtn = document.querySelector("#toggle");
+const body = document.querySelector("body");
+const signUpBtn = document.querySelector("#open");
+const closeBtn = document.querySelector("#close");
+const layout = document.querySelector("#modal");
+const modal = document.querySelector(".modal");
+const test = document.querySelector(".test");
 
-// // Toggle nav
-// toggle.addEventListener('click', () =>
-//   document.body.classList.toggle('show-nav')
-// );
+signUpBtn.addEventListener("click", () => {
+  layout.style.visibility = "visible ";
+  modal.style.opacity = 1;
+});
 
-// // Show modal
-// open.addEventListener('click', () => modal.classList.add('show-modal'));
+closeBtn.addEventListener("click", () => {
+  layout.style.visibility = "hidden";
+  modal.style.opacity = 0;
+});
 
-// // Hide modal
-// close.addEventListener('click', () => modal.classList.remove('show-modal'));
+layout.addEventListener("click", (e) => {
+  console.log("layout be clicked");
+  if (e.target === layout) {
+    layout.style.visibility = "hidden";
+    modal.style.opacity = 0;
+  } else return;
+});
 
-// // Hide modal on outside click
-// window.addEventListener('click', e =>
-//   e.target == modal ? modal.classList.remove('show-modal') : false
-// );
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && layout.style.visibility === "visible") {
+    layout.style.visibility = "hidden";
+    modal.style.opacity = 0;
+  }
+});
+
+sidebarBtn.addEventListener("click", () => {
+  body.classList.toggle("showSidebar");
+});
+
+window.addEventListener("click", () => {
+  test.classList.toggle("hidden");
+});
