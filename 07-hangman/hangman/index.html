@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Hangman</title>
+  </head>
+  <body>
+    <h1>Hangman</h1>
+    <p>Find the hidden word - Enter a letter</p>
+    <div class="game-container">
+      <!--* svg標籤就像一個畫布一樣 你要先定義一個畫布範圍  -->
+      <svg height="250" width="200" class="figure-container">
+        <!--* 然後定義你要畫的向量圖型 如line:直線  circle:圓形 rect===rectangle:矩形 polygon:多邊形等等    -->
+        <!--! 起始點為畫布的左上角(0, 0) -->
+        <line x1="60" y1="20" x2="140" y2="20"></line>
+        <line x1="140" y1="20" x2="140" y2="50"></line>
+        <line x1="60" y1="20" x2="60" y2="230"></line>
+        <line x1="20" y1="230" x2="100" y2="230"></line>
+
+        <!-- Head -->
+        <!--* (cx, cy) = 中心點 r=半徑 -->
+        <circle cx="140" cy="70" r="20" class="figure-part"></circle>
+
+        <!-- Body -->
+        <line x1="140" y1="90" x2="140" y2="150" class="figure-part"></line>
+
+        <!-- Arms -->
+        <line x1="110" y1="90" x2="140" y2="110" class="figure-part"></line>
+        <line x1="170" y1="90" x2="140" y2="110" class="figure-part"></line>
+
+        <!-- Legs -->
+        <line x1="110" y1="170" x2="140" y2="150" class="figure-part"></line>
+        <line x1="170" y1="170" x2="140" y2="150" class="figure-part"></line>
+      </svg>
+
+      <div class="wrong-letters-container">
+        <div id="wrong-letters">
+          <p>Wrong</p>
+          <span>e,r,t,y</span>
+        </div>
+      </div>
+
+      <div class="word" id="word">
+        <div class="letter">h</div>
+        <div class="letter">e</div>
+        <div class="letter">l</div>
+        <div class="letter">l</div>
+        <div class="letter">o</div>
+      </div>
+    </div>
+
+    <!-- Container for final message -->
+    <div class="popup-container" id="popup-container">
+      <div class="popup">
+        <h2 id="final-message">You Have Won</h2>
+        <button id="play-button">Play Again</button>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification-container" id="notification-container">
+      <p>You have already entered this letter</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
